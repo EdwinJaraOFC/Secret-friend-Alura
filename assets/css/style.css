@@ -28,6 +28,7 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    max-width: 100vw;
 }
 
 /* Banner */
@@ -37,14 +38,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px 0 0;
+    gap: 10px; /* Espacio entre imagen y texto */
 }
 
 /* Sección de entrada */
 .input-section {
-    flex: 60%;
+    flex: 50%;
     background-color: var(--color-secondary);
-    border: 1px solid #000;
-    border-radius: 64px 64px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,4 +159,44 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+/* Estilos generales de la lista */
+#listaAmigos {
+    display: block; /* En móviles, se muestra en 1 sola columna */
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 400px; /* Evita que la lista se expanda demasiado */
+}
+
+/* Estilos solo para PC (2 columnas) */
+@media screen and (min-width: 768px) {
+    #listaAmigos {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
+        gap: 10px; /* Espaciado entre elementos */
+        max-width: 600px; /* Ancho máximo para que no se vea muy extendido */
+    }
+
+    #listaAmigos li {
+        text-align: left; /* Alinea los elementos a la izquierda */
+    }
+}
+
+/* Estilos para móviles */
+@media screen and (max-width: 600px) {
+    .header-banner {
+        flex-direction: column; /* Hace que la imagen y el texto se apilen en vertical */
+        text-align: center; /* Asegura que el texto esté centrado */
+    }
+    
+    .main-title {
+        font-size: 36px; /* Reduce el tamaño del texto en pantallas pequeñas */
+    }
+
+    .header-banner img {
+        max-width: 80%; /* Evita que la imagen sea demasiado grande */
+        height: auto;
+    }
 }
